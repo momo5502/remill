@@ -28,6 +28,10 @@
     state.st.elems[2].val = state.st.elems[1].val; \
     state.st.elems[1].val = state.st.elems[0].val; \
     state.st.elems[0].val = __x; \
+\
+    state.x87.fxsave.ftw.flat <<= 1; \
+    state.x87.fxsave.ftw.r0 = kFPUAbridgedTagValid; \
+\
     state.x87.fxsave.swd.top = \
         static_cast<uint16_t>((state.x87.fxsave.swd.top + 7) % 8); \
   } while (false)
@@ -46,6 +50,10 @@
     state.st.elems[5].val = state.st.elems[6].val; \
     state.st.elems[6].val = state.st.elems[7].val; \
     state.st.elems[7].val = __x; \
+\
+    state.x87.fxsave.ftw.flat >>= 1; \
+    state.x87.fxsave.ftw.r7 = kFPUAbridgedTagEmpty; \
+\
     state.x87.fxsave.swd.top = \
         static_cast<uint16_t>((state.x87.fxsave.swd.top + 9) % 8); \
     __x; \
