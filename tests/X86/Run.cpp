@@ -968,10 +968,6 @@ static void RunWithFlags(const test::TestInfo *info, Flags flags,
   lifted_state->x87.fxsave.ip = 0;
   native_state->x87.fxsave.ip = 0;
 
-  // Don't compare the tag words.
-  lifted_state->x87.fxsave.ftw.flat = 0;
-  native_state->x87.fxsave.ftw.flat = 0;
-
   // Getting C1 right is hard, so we don't try.
   lifted_state->x87.fxsave.swd.c1 = 0;
   native_state->x87.fxsave.swd.c1 = 0;
